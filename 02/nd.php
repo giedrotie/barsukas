@@ -236,19 +236,25 @@ echo "Pradinis laikas yra $hours : $minutes : $seconds <br>";
 echo "Pridetos sekundes: $randomSeconds <br>";
 
 $seconds = $seconds + $randomSeconds;
-
-if ($seconds > 59){
-    $seconds -= 60;
-    $minutes++;
-}if ($seconds > 59){
-    $seconds -= 60;
-    $minutes++;
+echo "<font color='grey'>Sekundziu is viso: $seconds </font><br>";
+if ($seconds > 60){
+    $newMinutes = floor($seconds / 60);
+    echo "<font color='grey'> Naujos minutes: $newMinutes </font><br>";
+    $leftSeconds = $seconds % 60;
+    echo "<font color='grey'>Likusios sekundes: $leftSeconds</font><br>";
+    $seconds = $leftSeconds;
 }
-if ($minutes > 59){
-    $minutes -=60;
+
+$totalMinutes = $minutes + $newMinutes;
+if ($totalMinutes > 59){
+    $totalMinutes -= 60;
     $hours++;
 }
-echo "Naujas laikas yra $hours : $minutes : $seconds <br>";
+if ($leftSeconds < 0) {
+    $leftSeconds = $newSeconds;
+}
+
+echo "Naujas laikas yra $hours : $totalMinutes : $seconds <br>";
 
 
 echo '<br><br>';
@@ -334,3 +340,4 @@ if ($var5 < $var6) {
     $var6 = $tmp;
 }
 echo "Reiksmes sudeliotos mazejimo tvarka: $var1, $var2, $var3, $var4, $var5, $var6. <br>";
+// dar reikia paversti stringa!!!!

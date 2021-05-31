@@ -14,18 +14,14 @@ echo '<br>';
 
 $sk = 1;
 
-
 echo ++$sk * $sk++;
 // 2 * 2
-
 
 echo $sk++ * $sk++;
 // 1 * 2
 
-
 echo $sk++ * ++$sk;
 // 1 * 3
-
 
 echo ++$sk * ++$sk;
 // 2 * 3
