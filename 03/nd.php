@@ -62,9 +62,7 @@ echo '<br>';
 
 $name = 'Keanu';
 $lastname = 'Reeves';
-$nameLast3Letters = substr($name,-3);
-$lastnameLast3Letters = substr($lastname,-3);
-$newString = $nameLast3Letters . $lastnameLast3Letters;
+$newString = substr($name,-3) . substr($lastname,-3);
 
 echo $newString;
 
@@ -98,7 +96,7 @@ $var = strtolower($var);
 echo substr_count($var, 'a', 0);
 
 /*
-7.	Sukurti kintamąjį su stringu: “An American in Paris”.
+7.	?? Sukurti kintamąjį su stringu: “An American in Paris”.
  Jame ištrinti visas balses. Rezultatą atspausdinti. 
  Kodą pakartoti su stringais: “Breakfast at Tiffany's”, 
  “2001: A Space Odyssey” ir “It's a Wonderful Life”.
@@ -107,9 +105,10 @@ echo '<hr>', '<br>';
 echo '------ 7 -----','<br>';
 echo '<br>';
 
-$originalString = 'An American in Paris';
-$newString = str_ireplace(array('a','e','i','o','u','y'),'',$originalString);
-echo $newString;
+
+$originalString1 = 'An American in Paris';
+$newString1 = str_ireplace(array('a','e','i','o','u','y'),'',$originalString1);
+echo $newString1;
 echo '<br>';
 
 $originalString2 = "Breakfast at Tiffany's";
@@ -124,8 +123,33 @@ $originalString4 = "It's a Wonderful Life";
 echo $newString4 = str_ireplace(array('a','e','i','o','u','y'),'',$originalString4);
 echo '<br>';
 
+
+
+
+echo '<hr>', '<br>';
+echo '------ 7 ---kitas var--','<br>';
+echo '<br>';
+
+$string1 = 'An American in Paris';
+$string2= "Breakfast at Tiffany's";
+$string3 = '2001: A Space Odyssey';
+$string4 = "It's a Wonderful Life";
+
+function delete_vowels($string){
+    $string = preg_replace('/[aeiouy]/', '', strtolower($string));
+    return $string;
+}
+echo $string1 . '<br>';
+echo delete_vowels($string1) . '<br>';
+echo $string2 . '<br>';
+echo delete_vowels($string2) . '<br>';
+echo $string3 . '<br>';
+echo delete_vowels($string3) . '<br>';
+echo $string4 . '<br>';
+echo delete_vowels($string4);
+
 /*
-8.	Stringe, kurį generuoja toks kodas: 
+8. ??	Stringe, kurį generuoja toks kodas: 
 'Star Wars: Episode '.str_repeat(' ', rand(0,5)). rand(1,9) . ' - A New Hope'; 
 Surasti ir atspausdinti epizodo numerį.
 */
@@ -134,10 +158,9 @@ echo '------ 8 -----','<br>';
 echo '<br>';
 
 $stringas = 'Star Wars: Episode '.str_repeat(' ', rand(0,5)). rand(1,9) . ' - A New Hope'; 
-echo $stringas;
-echo '<br>';
-echo rand(1,9); // tik sitas rand rodo epizodo nr 
-echo str_repeat(' ', rand(0,5)); // cia paraso tiek kartu nurodyta stringa kiek ismeta rand
+echo $stringas . '<br>';
+
+echo 'Epizodas: ' .  preg_replace('/[^0-9]/', '', $stringas);
 
 
 /*
@@ -151,15 +174,56 @@ echo '<hr>', '<br>';
 echo '------ 9 -----';
 echo '<br>';
 
-$stringas = "Don't Be a Menace to South Central While Drinking Your Juice in the Hood";
+$stringas1 = "Don't Be a Menace to South Central While Drinking Your Juice in the Hood";
+$stringas2 = 'Tik nereikia gąsdinti Pietu Centro, geriant sultis pas save kvartale';
 
-echo str_word_count($stringas);
+function wordCount($str){
+    $count = 0;
+    $arr = explode(" ", $str);
+    for ($i = 0; $i < count($arr); $i++) {
+        $word = $arr[$i];
+        if(strlen($word) <= 5) {
+            $count++;
+        }
+    }
+    return $count;
+}
 
+echo wordCount($stringas1);
+echo '<br>';
+echo wordCount($stringas2);
+echo '<br>';
+
+
+echo '<hr>', '<br>';
+echo '------ 10 -----';
+echo '<br>';
 
 /*
 10.	Parašyti kodą, kuris generuotų atsitiktinį stringą 
 iš lotyniškų mažųjų raidžių. Stringo ilgis 3 simboliai.
 */
+function generateRandomString($length = 3) {
+    $characters = 'abcdefghijklmnopqrstuvwxyz';
+    $charactersLength = strlen($characters);
+    $randomString = '';
+    for ($i = 0; $i < $length; $i++) {
+        $randomString .= $characters[rand(0, $charactersLength - 1)];
+    }
+    return $randomString;
+}
+echo generateRandomString();
+
+// echo '<hr>', '<br>';
+// echo '------ 10 ---kitas var--';
+// echo '<br>';
+
+
+// function generuotiAtsitiktiniStr($length = 3) {
+//     return substr(str_shuffle(str_repeat($x='abcdefghijklmnopqrstuvwxyz', ceil($length/strlen($x)) )),1,$length);
+// }
+
+// echo  generuotiAtsitiktiniStr();
 
 /*
 11.	Parašykite kodą, kuris generuotų atsitiktinį stringą 
@@ -167,3 +231,21 @@ su 10 atsitiktine tvarka išdėliotų žodžių, o žodžius generavimui
 imtų iš 9-me uždavinyje pateiktų dviejų stringų. Žodžiai neturi kartotis. 
 (reikės masyvo)
 */
+echo '<hr>', '<br>';
+echo '------ 11 -----';
+echo '<br>';
+
+$sakinys1 = "Don't Be a Menace to South Central While Drinking Your Juice in the Hood";
+$sakinys2 = 'Tik nereikia gąsdinti Pietu Centro, geriant sultis pas save kvartale';
+
+$pirmas = preg_replace('/[.,]/', '', $pirmas);
+$antras = preg_replace('/[,.]/', '', $antras);
+$string =array_merge(explode(" ",$pirmas), explode(" ",$antras));
+$kiek = count($string);
+$random = [];
+while(count($random)< 10 ){
+    array_push($random, $string[rand(0,$kiek-1)]);
+    $random = array_unique($random);
+}
+
+print_r($random);
