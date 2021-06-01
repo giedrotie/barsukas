@@ -1,4 +1,5 @@
 <?php
+
 /*
 1.	Sukurti du kintamuosius. Jiems priskirti savo mylimo aktoriaus 
 vardą ir pavardę kaip stringus (Jonas Jonaitis). Atspausdinti trumpesnį stringą.
@@ -15,6 +16,13 @@ if (strlen($name) < strlen($lastname)){
     echo $lastname;
 }
 
+echo '<hr>', '<br>';
+echo '------ 1 ---kitas var--', '<br>';
+echo '<br>';
+$name = 'Jason';
+$surname = 'Statham';
+
+echo strlen($name) > strlen($surname) ? $name : $surname;
 /*
 2.	Sukurti du kintamuosius. Jiems priskirti savo mylimo 
 aktoriaus vardą ir pavardę kaip stringus. Vardą atspausdinti 
@@ -66,6 +74,17 @@ $newString = substr($name,-3) . substr($lastname,-3);
 
 echo $newString;
 
+echo '<hr>', '<br>';
+echo '------ 4 ---kitas var--','<br>';
+echo '<br>';
+
+$name = 'Leonardo';
+$surname = 'DaVincio';
+$letters = substr($name, (strlen($name) - 3), 3) . substr($surname, (strlen($surname) - 3), 3);
+
+echo $letters;
+
+
 /*
 5.	Sukurti kintamąjį su stringu: “An American in Paris”. 
 Jame visas “a” (didžiąsias ir mažąsias) pakeisti žvaigždutėm “*”. 
@@ -95,8 +114,14 @@ $var = strtolower($var);
 
 echo substr_count($var, 'a', 0);
 
+echo '<hr>', '<br>';
+echo '------ 6 --kitas var---','<br>';
+echo '<br>';
+$pavadinimas = 'An American in Paris'; 
+echo substr_count(strtolower($pavadinimas),'a');
+
 /*
-7.	?? Sukurti kintamąjį su stringu: “An American in Paris”.
+7.	Sukurti kintamąjį su stringu: “An American in Paris”.
  Jame ištrinti visas balses. Rezultatą atspausdinti. 
  Kodą pakartoti su stringais: “Breakfast at Tiffany's”, 
  “2001: A Space Odyssey” ir “It's a Wonderful Life”.
@@ -107,22 +132,21 @@ echo '<br>';
 
 
 $originalString1 = 'An American in Paris';
-$newString1 = str_ireplace(array('a','e','i','o','u','y'),'',$originalString1);
+$newString1 = str_ireplace(['a','e','i','o','u','y'],'',$originalString1);
 echo $newString1;
 echo '<br>';
 
 $originalString2 = "Breakfast at Tiffany's";
-echo $newString2 = str_ireplace(array('a','e','i','o','u','y'),'',$originalString2);
+echo $newString2 = str_ireplace(['a','e','i','o','u','y'],'',$originalString2);
 echo '<br>';
 
 $originalString3 = '2001: A Space Odyssey';
-echo $newString3 = str_ireplace(array('a','e','i','o','u','y'),'',$originalString3);
+echo $newString3 = str_ireplace(['a','e','i','o','u','y'],'',$originalString3);
 echo '<br>';
 
 $originalString4 = "It's a Wonderful Life";
-echo $newString4 = str_ireplace(array('a','e','i','o','u','y'),'',$originalString4);
+echo $newString4 = str_ireplace(['a','e','i','o','u','y'],'',$originalString4);
 echo '<br>';
-
 
 
 
@@ -149,7 +173,7 @@ echo $string4 . '<br>';
 echo delete_vowels($string4);
 
 /*
-8. ??	Stringe, kurį generuoja toks kodas: 
+8.	Stringe, kurį generuoja toks kodas: 
 'Star Wars: Episode '.str_repeat(' ', rand(0,5)). rand(1,9) . ' - A New Hope'; 
 Surasti ir atspausdinti epizodo numerį.
 */
@@ -159,12 +183,25 @@ echo '<br>';
 
 $stringas = 'Star Wars: Episode '.str_repeat(' ', rand(0,5)). rand(1,9) . ' - A New Hope'; 
 echo $stringas . '<br>';
-
 echo 'Epizodas: ' .  preg_replace('/[^0-9]/', '', $stringas);
 
+echo '<hr>', '<br>';
+echo '------ 8 ---kitas var--','<br>';
+echo '<br>';
+
+$starwars = 'Star Wars: Episode '.str_repeat(' ', rand(0,5)). rand(1,9) . ' - A New Hope';
+echo preg_replace('/\D/', '', $starwars);
+
+echo '<hr>', '<br>';
+echo '------ 8 ---dar kitas var--','<br>';
+echo '<br>';
+
+$string = 'Star Wars: Episode '.str_repeat(' ', rand(0,5)). rand(1,9) . ' - A New Hope';
+preg_match_all('!\d+!', $string, $episodeNumber);
+echo $string . '<br>Episode Nr. ' . $episodeNumber[0][0] . '.';
 
 /*
-9.	Suskaičiuoti kiek stringe “Don't Be a Menace to South 
+9. ? Suskaičiuoti kiek stringe “Don't Be a Menace to South 
 Central While Drinking Your Juice in the Hood” yra žodžių trumpesnių 
 arba lygių nei 5 raidės. Pakartokite kodą su stringu “Tik nereikia 
 gąsdinti Pietų Centro, geriant sultis pas save kvartale”.
@@ -175,14 +212,14 @@ echo '------ 9 -----';
 echo '<br>';
 
 $stringas1 = "Don't Be a Menace to South Central While Drinking Your Juice in the Hood";
-$stringas2 = 'Tik nereikia gąsdinti Pietu Centro, geriant sultis pas save kvartale';
+$stringas2 = 'Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale';
 
 function wordCount($str){
     $count = 0;
-    $arr = explode(" ", $str);
-    for ($i = 0; $i < count($arr); $i++) {
-        $word = $arr[$i];
-        if(strlen($word) <= 5) {
+    $array = explode(" ", $str);
+    for ($i = 0; $i < count($array); $i++) {
+        $word = $array[$i];
+        if(mb_strlen($word) <= 5) {
             $count++;
         }
     }
@@ -195,6 +232,29 @@ echo wordCount($stringas2);
 echo '<br>';
 
 
+
+echo '<hr>', '<br>';
+echo '------ 9 -kitas var----';
+echo '<br>';
+
+$string2 = 'Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale.';
+echo $string2;
+echo '<br>'; echo '<br>';
+
+$words = explode(' ', $string2);
+$counter = 0;
+
+for($i = 0; $i < count($words); $i++) {
+    if (mb_strlen($words[$i], 'UTF-8') <= 5){
+        $counter++;
+    }
+}
+echo "Žodžių, trumpenių arba lygių nei 5 raidės skaičius: $counter";
+
+
+
+
+
 echo '<hr>', '<br>';
 echo '------ 10 -----';
 echo '<br>';
@@ -203,21 +263,58 @@ echo '<br>';
 10.	Parašyti kodą, kuris generuotų atsitiktinį stringą 
 iš lotyniškų mažųjų raidžių. Stringo ilgis 3 simboliai.
 */
-function generateRandomString($length = 3) {
-    $characters = 'abcdefghijklmnopqrstuvwxyz';
-    $charactersLength = strlen($characters);
-    $randomString = '';
-    for ($i = 0; $i < $length; $i++) {
-        $randomString .= $characters[rand(0, $charactersLength - 1)];
+function randomStringoGeneravimas($ilgis = 3) {
+    $raides = 'abcdefghijklmnopqrstuvwxyz';
+    $raidziuIlgis = strlen($raides);
+    $randomStringas = '';
+    for ($i = 0; $i < $ilgis; $i++) {
+        $randomStringas .= $raides[rand(0, $raidziuIlgis - 1)];
     }
-    return $randomString;
+    return $randomStringas;
 }
-echo generateRandomString();
+echo randomStringoGeneravimas();
+
+
+echo '<hr>', '<br>';
+echo '------ 10 --dar kitas var---';
+echo '<br>';
+
+$raides = substr(str_shuffle('abcdefghijklmnopqrstuvwxyz'), 0, 3);
+echo "<b>$raides</b>";
+$randomStringChars = str_split('abcdefghijklmnopqrstuvwxyz' .'ABCDEFGHIJKLMNOPQRSTUVWXYZ');
+shuffle($randomStringChars);
+$rand = '';
+foreach (array_rand($randomStringChars, 3) as $k) $rand .= $randomStringChars[$k];
+echo 'Atsitiktiniai 3 lotyniski simboliai:<br>';
+echo $rand;
+
+
+echo '<hr>', '<br>';
+echo '------ 10 --dar kitas var---';
+echo '<br>';
+echo chr(rand(97, 122)) . chr(rand(97, 122)) . chr(rand(97, 122));
+
+
+
+echo '<hr>', '<br>';
+echo '------ 10 --dar kitas var---';
+echo '<br>';
+
+$characters = range( 'a', 'z' );
+$string = implode($characters);
+echo "Full ABC string: $string";
+echo '<br>';
+
+
+
+$randomString = substr(str_shuffle($string), 0, 3);
+
+echo $randomString;
+
 
 // echo '<hr>', '<br>';
 // echo '------ 10 ---kitas var--';
 // echo '<br>';
-
 
 // function generuotiAtsitiktiniStr($length = 3) {
 //     return substr(str_shuffle(str_repeat($x='abcdefghijklmnopqrstuvwxyz', ceil($length/strlen($x)) )),1,$length);
@@ -231,21 +328,31 @@ su 10 atsitiktine tvarka išdėliotų žodžių, o žodžius generavimui
 imtų iš 9-me uždavinyje pateiktų dviejų stringų. Žodžiai neturi kartotis. 
 (reikės masyvo)
 */
+
+
+
+/*
+11.	Parašykite kodą, kuris generuotų atsitiktinį stringą 
+su 10 atsitiktine tvarka išdėliotų žodžių, o žodžius generavimui 
+imtų iš 9-me uždavinyje pateiktų dviejų stringų. Žodžiai neturi kartotis. 
+(reikės masyvo)
+*/
 echo '<hr>', '<br>';
 echo '------ 11 -----';
 echo '<br>';
 
-$sakinys1 = "Don't Be a Menace to South Central While Drinking Your Juice in the Hood";
-$sakinys2 = 'Tik nereikia gąsdinti Pietu Centro, geriant sultis pas save kvartale';
-
-$pirmas = preg_replace('/[.,]/', '', $pirmas);
-$antras = preg_replace('/[,.]/', '', $antras);
-$string =array_merge(explode(" ",$pirmas), explode(" ",$antras));
-$kiek = count($string);
-$random = [];
-while(count($random)< 10 ){
-    array_push($random, $string[rand(0,$kiek-1)]);
+$string = "Don't Be a Menace to South Central While Drinking Your Juice in the Hood";
+$string1 = 'Tik nereikia gąsdinti Pietų Centro, geriant sultis pas save kvartale';
+$string = str_replace(',', '', $string);
+$string1 = str_replace(',', '', $string1);
+$wordSource = array_merge(explode(' ', $string), explode(' ', $string1));
+$random[] = '';
+$randomWordCount = 20;
+$randomWordCount = $randomWordCount > count($wordSource) ? count($wordSource) : $randomWordCount;
+while (count($random) <= $randomWordCount ) {
+    array_push($random, $wordSource[rand(0, count($wordSource) - 1)]);
     $random = array_unique($random);
 }
-
-print_r($random);
+foreach ($random as $word) {
+    echo $word . ' ';
+}
