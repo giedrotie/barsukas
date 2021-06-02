@@ -37,3 +37,34 @@ for ($i=1; $i <= 5; $i++) {
     }while ($kalimoGylis < $viniesIlgis);
     echo "$i vinis. Smugiu kiekis: $smugiuKiekis <br>";
 }
+
+
+echo '<br>','<h3>--------- 10 gabijos---------</h3>', '<br>','<br>';
+
+$nail_length = 85;
+// 5 nails with small strikes:
+$strikes = 0;
+for ($i = 0; $i < 5; $i++) {
+    $progress = 0;
+    while ($progress < $nail_length) {
+        $small_strike = rand(5, 20);
+        $progress += $small_strike;
+        $strikes++;
+    }
+}
+echo "Fully hammering 5 nails with small strikes took $strikes strikes. <br>";
+
+// 5 nails with small strikes:
+
+$strikes = 0;
+for ($i = 0; $i < 5; $i++) {
+    $progress = 0;
+    while ($progress < $nail_length) { 
+        $big_strike = rand(20, 30);
+        if (rand(0, 1) == 1) {
+            $progress += $small_strike;
+        }
+        $strikes++;
+    }
+}
+echo "Fully hammering 5 nails with big strikes took $strikes strikes. <br>";

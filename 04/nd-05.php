@@ -7,7 +7,7 @@ raudonas istrižaines.
 
 echo '<br>','<h3>--------- 5 ---------</h3>', '<br>','<br>';
 
-$ilgis = 15;
+$ilgis = 50;
 
 for ($i = 1; $i < $ilgis; $i++) { 
     for ($m = 1; $m < $ilgis; $m++) { 

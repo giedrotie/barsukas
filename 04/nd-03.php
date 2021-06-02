@@ -30,6 +30,21 @@ echo $skaiciai;
 
 
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 // $string = '';
 // $limit = rand(3000, 4000);
 // // echo $limit . '<br>';

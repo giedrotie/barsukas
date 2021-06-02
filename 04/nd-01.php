@@ -16,16 +16,37 @@ for ($i=0; $i < $ilgis; $i++) {
 }
 echo $linija;
 
-echo '<h3>--- a)---</h3>';
+echo '<h3>---1 a)---</h3>';
+
 echo "<p style = 'overflow-wrap: break-word;'>$linija</p>";
 
-echo '<h3>--- b)---</h3>';
+
+
+
+echo '<h3>---1 b)---</h3>';
 
 $plotis = 50;
 for ($i = 0; $i < $ilgis / $plotis; $i++) {
-    $linija = '';
+    $linija = ''.'<br>';
     for ($m = 0; $m < $plotis; $m++) {
         $linija = $linija . '*';
     }
-    echo "<h5 style='color: blue; overflow-wrap: break-word;'>$linija</h5>";
+     echo $linija;
+     echo "<div style='overflow-wrap: break-word;'>$linija</div>";
+}
+
+
+
+echo '<h3>---1 kitas var---</h3>';
+
+for ($i=1; $i < 401 ; $i++) { 
+
+    echo '*';
+
+    if($i % 50 == 0) {
+
+        echo '<br>';
+
+    } 
+
 }

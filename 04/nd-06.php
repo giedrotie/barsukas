@@ -69,6 +69,30 @@ while ($herbuKiekis !== 3){
 
 
 
+//c
+echo '<br>','<h3>--------- 6 kitas var--------</h3>', '<br>','<br>';
+echo '<br>';
+
+$h = 0;
+
+do {
+    $coin = rand(0, 1);
+    if ($coin === 1) {
+        echo 'S';
+        $h = 0;
+    } else {
+        echo 'H';
+        $h++;
+    }
+} while ($h < 3);
+
+
+
+
+
+
+
+
 
 
 // echo '<br>';

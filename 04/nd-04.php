@@ -24,17 +24,59 @@ for ($i = 0; $i < $ilgis; $i++) {
         $kvadratas .= '*';
     }
     echo "<div style='line-height: 11px; font-size: 22px;'>$kvadratas</div>";
-    //echo $kvadratas;
 }
 
 
-// $string = '';
-// $columnWidth = 10;
-// for ($ii = 0; $ii < $columnWidth; $ii++) {
-//     $string = '';
-//     for ($i = 0; $i < $columnWidth; $i++) {
-//         $string = $string . '*';
-//     }
-//     echo "<div style='color: blue; line-height: 7px; font-size: 14px;'>$string</div>";
-// }
-// echo '<br><br>';
+echo '<br>','<h3>--------- 4 ---kitas var------</h3>', '<br>','<br>';
+
+echo "<div style = 'line-height: 70%;'>";
+
+for ($i = 0; $i < 25; $i++) {
+    for ($j = 0; $j < 25; $j++) {
+        echo '* ';
+    }
+   echo "</br>";
+}
+
+'</div>';
+
+
+
+
+
+
+
+echo '<br>','<h3>--------- 4 ---kitas var------</h3>', '<br>','<br>';
+<style>
+  .kvadratas {
+    white-space: nowrap;
+  }
+  .kvadratas span{
+    padding: 3px;
+  }
+</style>
+
+
+<?php
+
+echo "<div class='kvadratas' id='kvadratas'>";
+
+for ($i = 0 ; $i < $krastine ; $i++)
+{
+    for ($j = 0 ; $j < $krastine ; $j++)
+    {
+        if($i==$j){
+            echo '<span class="red">* </span>';
+        }
+        elseif($i+$j == $krastine-1){
+            echo '<span class="red">* </span>';
+        }
+        else {
+         echo '<span>* </span>';
+        }
+    }
+    echo '<br>';
+
+}
+echo '</div>';
+echo '<hr>';
