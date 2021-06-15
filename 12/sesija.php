@@ -1,57 +1,29 @@
 <?php
 session_start();
 if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    if (!isset($_SESSION['results'])) { // [kiek yra sugeneruota, kiek sugeneruota] [5,1]
-    //1 scenarijus FORMOS RODYMAS, GET
+    if (!isset($_SESSION['results'])) {   // [5, 1]  [sugeneruota, pazymeta]
+    // 1 scenarijus Formos Rodymas GET
     $letters = range('A', 'J');
     $count = rand(3, 10);
     $color = 'black';
     $form = true;
-
     }
     else {
-    //2 scenarijus REZULTATU RODYMAS, GET
-        $color = 'white';
-        $form = false;
-        $sugeneruota = $_SESSION['results'][0];
-        $pazymeta = $_SESSION['results'][1];
-        unset($_SESSION['results']);
-
+    // 2 scenarijus Rezultatų Rodymas GET
+    $color = 'white';
+    $form = false;
+    $sugeneruota = $_SESSION['results'][0];
+    $pazymeta = $_SESSION['results'][1];
+    unset($_SESSION['results']);
     }
-
-
-
 }
-
 else {
-    //3 scenarijus CHECKBOX'U SKAICIAVIMAS, kai metodas POST
+    // 3 scenarijus Checkboksų skaičiavimas POST
     $_SESSION['results'][0] = $_POST['count'];
-    $_SESSION['results'][1] = count($_POST['let']??[]);
-    header('Location:http://localhost/barsukas/12/sesija.php');
+    $_SESSION['results'][1] = count($_POST['let'] ?? []);
+    header('Location: http://localhost/barsukas/12/nd79_sess.php');
     die;
-
-  
-
-    
 }
-
-
-
-
-
-    $letters = range('A', 'J');
-    $count = rand(3, 10);
-    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-        $color = 'white';
-        $form = false;
-    }
-    else {
-        $color = 'black';
-        $form = true;
-    }
-
-    // _d($letters);
-    // _d($_POST);   // $_POST['let'] == ['D', 'F']
 ?>
 
 <!DOCTYPE html>
@@ -77,11 +49,8 @@ else {
         <button type="submit">CAL</button>
         </form>
     <?php else : ?>
-        <br>Sugeneruota: <?= $_POST['count'] ?>
-        <br>Pažymėta: <?= count($_POST['let'] ?? []) ?>
+        <br>Sugeneruota: <?= $sugeneruota ?>
+        <br>Pažymėta: <?= $pazymeta ?>
     <?php endif ?>
-
-
-
 </body>
 </html>
