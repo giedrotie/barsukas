@@ -1,0 +1,10 @@
+@import './addAccount.css';
+@import './meniuBar.css';
+@import './header.css';
+@import './msg.css';
+@import './header.css';
+@import './accounts.css';
+
+body {
+    background-color: rgb(117, 147, 211);
+}

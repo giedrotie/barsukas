@@ -1,27 +1,28 @@
 <?php
 session_start();
-if ($_SERVER['REQUEST_METHOD'] == 'GET') {
-    if (!isset($_SESSION['results'])) {   // [5, 1]  [sugeneruota, pazymeta]
+if ($_SERVER['REQUEST_METHOD'] == 'GET') { // kai sesijone nera irasyta jokio rezultato, mes turime rodyti tuscia forma
+    if (!isset($_SESSION['results'])) {   // [5, 1]  [sugeneruota, pazymeta] <-- cia i sesija irasomi rezultatai
     // 1 scenarijus Formos Rodymas GET
     $letters = range('A', 'J');
     $count = rand(3, 10);
     $color = 'black';
     $form = true;
     }
-    else {
+    else { // kai sesijoje jau yra irasytas rezultatas
     // 2 scenarijus Rezultatų Rodymas GET
     $color = 'white';
     $form = false;
-    $sugeneruota = $_SESSION['results'][0];
+    $sugeneruota = $_SESSION['results'][0]; // cia priskirimi rezultatai naujiems kintamiesiems, kad galima butu unsettint sesija
     $pazymeta = $_SESSION['results'][1];
-    unset($_SESSION['results']);
+    unset($_SESSION['results']); // butina unsetinti sesija, kitaip sekanti karta rodys tik pirmos  sesijos rezultatus
     }
 }
 else {
-    // 3 scenarijus Checkboksų skaičiavimas POST
+    // 3 scenarijus Checkboksų skaičiavimas (duomenu apdorojimas) POST
+    // nieko niekam niekada neatvaizduoja nes tai yra POST 
     $_SESSION['results'][0] = $_POST['count'];
     $_SESSION['results'][1] = count($_POST['let'] ?? []);
-    header('Location: http://localhost/barsukas/12/nd79_sess.php');
+    header('Location: http://localhost/barsukas/12/sesija.php');
     die;
 }
 ?>

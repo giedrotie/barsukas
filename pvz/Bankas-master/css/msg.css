@@ -1,0 +1,9 @@
+.msgBox {   
+    margin: 30px 11px;
+}
+.msg {
+    padding: 10px;
+    text-decoration: none;
+    color: black;        
+    border:1px solid black;
+}

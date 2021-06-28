@@ -1,0 +1,22 @@
+.addAccForm {
+    margin: 17px;
+    width: 300px;
+    padding: 14px;
+    border: 1px solid black;
+}
+.inputLine {
+    width: 300px;
+    height: 30px;
+}
+.createButtonLine {
+    width: 300px;
+    text-align: center;
+    
+}
+.inputLabel {
+    display: inline-block;
+}
+.inputBox {
+    float: right;
+    text-align: center;
+}

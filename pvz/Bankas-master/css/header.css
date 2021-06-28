@@ -1,0 +1,17 @@
+.logo {
+    display: inline-block;
+    font-size: 30px;
+    margin: 0px 0px 0px 20px;
+}
+.logo > h1 {
+    margin: 20px 0;
+}
+.loggedAs{
+    margin: 0 20px 0 0;
+    float: right;
+    font-size: 12px;
+}
+.loggedAs > h3 {
+    margin: 20px 0;
+    line-height: 69px;
+}

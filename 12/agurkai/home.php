@@ -10,16 +10,11 @@
     <?php include __DIR__ . '/menu.php' ?>
     <?php include __DIR__ . '/msg.php' ?>
     <ul>
-
-    <!-- isrusiavimas -->
     <?php
-        usort($boxes, function($a, $b){
+        usort($boxes, function($a, $b) {
             return $b['amount'] <=> $a['amount'];
         })
-
     ?>
-
-    
     <?php foreach($boxes as $box) : ?>
         <li>
             Dėžė Nr. <?= $box['id'] ?> Viso agukų: <?= $box['amount'] ?>
