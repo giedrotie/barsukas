@@ -40,12 +40,16 @@ else {
 </head>
 <body>
     <?php include __DIR__ . '/login-msg.php' ?>
-    <?php include __DIR__ . '/login-menu.php' ?>
-    <h1>Login</h1>
-    <form action="http://localhost/barsukas/bankas/login/login.php" method="post">
-    <input type="text" name="name">
-    <input type="password" name="pass">
-    <button type="submit">Login</button>
+
+    <h1 style="margin-left: 40px; margin-top: 40px">Prisijungimas prie banko</h1>
+    <form style="margin: 40px" action="http://localhost/barsukas/bankas/login/login.php" method="post">
+    <label for="text">Prisijungimo vardas</label>
+    <input style="margin-left:20px" type="text" name="name"><br><br>
+
+    <label for="text">Slaptažodis</label>
+    <input style="margin-left:75px" type="password" name="pass"><br><br>
+    <button class="btn btn-primary" style="margin-right: 20px; type="submit">Prisijungti</button>
+    
     </form>
 </body>
 </html>

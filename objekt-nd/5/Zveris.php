@@ -11,6 +11,11 @@ class Zveris extends Miskas{
         parent::papasakok();
     }
 
+    public function papasakok()
+    {
+        echo "Aš gyvenu miške pavadintame $this->name, o kur tu?";
+    }
+
     public function pasakojimas() {
         $this->papasakok();
     }

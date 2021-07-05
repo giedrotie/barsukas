@@ -11,7 +11,7 @@ function printAccount ($account) {
                     <th scope="col">Pavardė:</th>
                     <th scope="col">Asmens kodas:</th>
                     <th scope="col">Sąskaitos nr.:</th>
-                    <th scope="col">Likutis:</th>
+                    <th scope="col">Likutis: Eur</th>
                     
                     </tr>
                 </thead>

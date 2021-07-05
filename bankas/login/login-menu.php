@@ -20,7 +20,7 @@
         <?php else : ?>
     </li>
     <li class="nav-item">
-        <a class="btn btn-outline-secondary" style="margin: 20px" href="http://localhost/barsukas/bankas/login/login.php?logout" role="button">Logout</a>
+        <a class="btn btn-outline-secondary" style="margin: 20px" href="http://localhost/barsukas/bankas/login/login.php?logout" role="button">Atsijungtii</a>
         <?php endif ?>
     </li>
     </ul>

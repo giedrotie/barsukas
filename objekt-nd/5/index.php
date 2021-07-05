@@ -9,5 +9,7 @@ $miskas= new Miskas('Šventaragio');
 papasakok($miskas);
 
 _d($miskas,'miskas');
+
+
 // $zveris = new Zveris('Elnias');
 // $zveris->pasakojimas();
